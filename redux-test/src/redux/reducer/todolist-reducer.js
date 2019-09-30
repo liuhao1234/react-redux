@@ -1,3 +1,4 @@
+//reducer中负责定义数据结构和修改数据的逻辑
 import { change_list,change_inputValue } from '../actions/todolist-action';
 
 const initialState = {

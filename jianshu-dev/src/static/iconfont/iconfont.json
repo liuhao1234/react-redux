@@ -1,0 +1,37 @@
+{
+  "id": "1440900",
+  "name": "jianshu",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1621077",
+      "name": "Aa",
+      "font_class": "Aa",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "3977817",
+      "name": "查询",
+      "font_class": "chaxun",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "4427375",
+      "name": "指南针",
+      "font_class": "index",
+      "unicode": "e68f",
+      "unicode_decimal": 59023
+    },
+    {
+      "icon_id": "5120175",
+      "name": "手机",
+      "font_class": "phone",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    }
+  ]
+}

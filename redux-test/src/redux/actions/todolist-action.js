@@ -1,3 +1,4 @@
+//action中负责定义actionName和actionCreator
 export const change_list = "change_list";
 export const change_inputValue = "change_inputValue";
 
