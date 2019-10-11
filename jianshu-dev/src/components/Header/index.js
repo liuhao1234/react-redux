@@ -1,5 +1,6 @@
 import React,{ Component,Fragment } from 'react';
 import { connect } from 'react-redux';
+import { searchFocus,searchBlur,getSearchList } from "../../react-redux/actions/header-actions";
 import { 
     HeaderWrap,
     HeaderContainer,
@@ -16,34 +17,11 @@ import {
 import ImgBeta from '../../static/images/icon-download.png';
 
 class Header extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            focused:false
-        }
+    componentDidMount (){
+        this.props.getSearchList();
     }
-
-    componentDidMount(){
-        this.props.reduxConnectTest(this.props.data);
-    }
-
-    searchFocus = ()=>{
-        this.setState(()=>{
-            return {
-                focused:true
-            }
-        })
-    }
-
-    searchBlur = ()=>{
-        this.setState(()=>{
-            return {
-                focused:false
-            }
-        })
-    }
-
     render(){
+        const {focused,searchFocus,searchBlur,searchlist} = this.props;
         return <Fragment>
             <HeaderWrap>
                 <HeaderLogo></HeaderLogo>
@@ -59,13 +37,28 @@ class Header extends Component{
                     </Nav>
                     <SearchItem>
                         <input 
-                            className={this.state.focused?"focused":""} 
+                            className={focused?"focused":""} 
                             type="text" 
                             placeholder="搜索" 
-                            onFocus = {this.searchFocus}
-                            onBlur = {this.searchBlur}
+                            onFocus = {searchFocus}
+                            onBlur = {searchBlur}
                         />
-                        <i className={"iconfont icon-chaxun "+(this.state.focused?"focused":"")}></i>
+                        <i className={"iconfont icon-chaxun "+(focused?"focused":"")}></i>
+                        <div className="search_panel" style={{display:(focused?"block":"none")}}>
+                            <h2>热门搜索</h2>
+                            <small><i className="iconfont icon-refresh"></i>换一批</small>
+                            <div className="search_items">
+                                {
+                                    searchlist.map((item,index)=>{
+                                        return <span key={index} className="search_item">{item.title}</span>
+                                    })
+                                }
+                            </div>
+                            <ul>
+                                <li><i className="iconfont icon-timer"></i>搜索历史记录<i className="iconfont icon-close"></i></li>
+                                <li><i className="iconfont icon-timer"></i>aaa<i className="iconfont icon-close"></i></li>
+                            </ul>
+                        </div>
                     </SearchItem>
                 </HeaderContainer>
                 
@@ -76,14 +69,24 @@ class Header extends Component{
 
 const mapStateToProps = (state,ownProps)=>{
     return {
-        data:state.headerReducer.data
+        focused:state.getIn(["headerReducer","focused"]),
+        searchlist:state.getIn(["headerReducer","searchlist"])
     }
 }
 
 const mapDispatchToProps = dispatch=>{
     return {
-        reduxConnectTest(data){
-            console.log(data)
+        searchFocus(){
+            const action = searchFocus();
+            dispatch(action)
+        },
+        searchBlur(){
+            const action = searchBlur();
+            dispatch(action)
+        },
+        getSearchList(){
+            const action = getSearchList();
+            dispatch(action)
         }
     }
 }

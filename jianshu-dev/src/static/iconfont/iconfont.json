@@ -6,11 +6,32 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "689286",
+      "name": "时间 钟表",
+      "font_class": "timer",
+      "unicode": "e810",
+      "unicode_decimal": 59408
+    },
+    {
+      "icon_id": "1185431",
+      "name": "close",
+      "font_class": "close",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
       "icon_id": "1621077",
       "name": "Aa",
       "font_class": "Aa",
       "unicode": "e636",
       "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "1766325",
+      "name": "操作-刷新",
+      "font_class": "refresh",
+      "unicode": "e68c",
+      "unicode_decimal": 59020
     },
     {
       "icon_id": "3977817",

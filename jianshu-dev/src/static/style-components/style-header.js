@@ -99,6 +99,109 @@ export const SearchItem = styled.div`
     border-radius:20px;
     background:#eee;
     padding:0 15px;
+    position:relative;
+    div.search_panel{
+        display:none;
+        position:absolute;
+        top:50px;
+        left:0;
+        border-radius:4px;
+        box-shadow:0 0 5px rgba(0,0,0,.2);
+        background:#fff;
+        width:260px;
+        line-height:initial;
+        &:before{
+            content:"";
+            width:16px;
+            height:16px;
+            position: absolute;
+            top: -6px;
+            left: 26px;
+            box-shadow:0 0 5px rgba(0,0,0,.2);
+            transform:rotate(45deg);
+            z-index:-1;
+        }
+        &:after{
+            content:"";
+            width:0;
+            height:0;
+            border: 8px solid transparent;
+            border-bottom-color: #fff;
+            position: absolute;
+            top: -16px;
+            left: 26px;
+        }
+        h2{
+            float:left;
+            font-size:14px;
+            font-weight:normal;
+            margin:0;
+            margin-left:10px;
+            margin-top:10px;
+        }
+        small{
+            float:right;
+            font-size:13px;
+            color:#969696;
+            opacity:0.8;
+            cursor:pointer;
+            margin-right:10px;
+            margin-top:10px;
+            i{
+                margin: -5px;
+                font-size: 14px;
+            }
+        }
+        div.search_items{
+            clear:both;
+            overflow:hidden;
+            padding:10px;
+            span{
+                font-size:12px;
+                line-height:18px;
+                padding:0px 3px;
+                margin:5px 4px;
+                color:#787878;
+                border:1px solid #ddd;
+                border-radius:4px;
+                display:block;
+                float:left;
+                cursor:pointer;
+                opacity:.7;
+                &:hover{
+                    opacity:1;
+                }
+            }
+        }
+        ul{
+            list-style:none;
+            display:none;
+            margin:0;
+            padding:10px 4px;
+            border-top:1px solid #f0f0f0;
+        }
+        li{
+            font-size:14px;
+            padding:6px 5px;
+            color:#969696;
+            cursor:pointer;
+            border-radius:4px;
+            &:hover{
+                background:#f0f0f0;
+                i.icon-close{
+                    display:block;
+                }
+            }
+            i.icon-close{
+                float:right;
+                display:none;
+            }
+            i{
+                margin: -5px;
+                font-size:14px;
+            }
+        }
+    }
     input{
         float:left;
         height:100%;
